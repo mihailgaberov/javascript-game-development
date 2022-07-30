@@ -1,18 +1,18 @@
+let playerState = "idle";
+const dropdown = document.getElementById("animations");
+dropdown.addEventListener("change", (e) => {
+  playerState = e.target.value;
+});
+
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = 600);
 const CANVAS_HEIGHT = (canvas.height = 600);
-
 const playerImage = new Image();
 playerImage.src = "shadow_dog.png";
 const spriteWidth = 575;
 const spriteHeight = 523;
-let playerState = "roll";
-
 const staggerFrames = 5;
-let frameX = 0;
-let frameY = 1;
-let gameFrame = 0;
 const spriteAnimations = [];
 const animationStates = [
   {
@@ -56,6 +56,8 @@ const animationStates = [
     frames: 4,
   },
 ];
+
+let gameFrame = 0;
 
 animationStates.forEach((state, index) => {
   let frames = {
